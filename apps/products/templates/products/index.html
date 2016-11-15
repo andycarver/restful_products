@@ -15,13 +15,17 @@
           <th>Price</th>
           <th>Actions</th>
       </tr>
+      {% for product in products%}
       <tr>
-          <td> </td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td><a href="{% url 'products:show' product.id %}">Show</a></td>
+          <td><a href="{% url 'products:edit' product.id %}">Edit</a></td>
+          <td><a href="{% url 'products:destroy' product.id %}">Remove</a></td>
       </tr>
+      {% endfor %}
   </table>
-  <a href="">Add a new product</a>
+  <a href="{% url 'products:new' %}">Add a new product</a>
 </body>
 </html>
