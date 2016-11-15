@@ -10,8 +10,8 @@ class ProductManager(models.Manager):
     def update_product(self, request, id):
         catz = self.filter(id=id).update(name=request.POST['name'], description=request.POST['description'], price=request.POST['price'])
 
-    def destroy(self, request):
-        pass
+    def destroy_product(self, request, id):
+        self.filter(id=id).delete()
 
 
 class Product(models.Model):

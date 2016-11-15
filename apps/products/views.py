@@ -36,5 +36,6 @@ def update(request, id):
 
     return redirect("products:index")
 
-def destroy(request):
-    pass
+def destroy(request, id):
+    Product.objects.destroy_product(request,id)
+    return redirect("products:index")
