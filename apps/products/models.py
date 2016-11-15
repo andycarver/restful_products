@@ -5,17 +5,12 @@ from django.db import models
 # Create your models here.
 class ProductManager(models.Manager):
     def create_new_product(self, request):
-        print '****************************************************************************************'
-        catz = self.create(name=request.POST['name'], description=request.POST['description'], price=request.POST['price'])
-        print '*'*100
-        print catz
-        print '*'*100
+        self.create(name=request.POST['name'], description=request.POST['description'], price=request.POST['price'])
 
-    def update(self, request):
-        pass
+    def update_product(self, request, id):
+        catz = self.filter(id=id).update(name=request.POST['name'], description=request.POST['description'], price=request.POST['price'])
+
     def destroy(self, request):
-        pass
-    def show(self, request):
         pass
 
 

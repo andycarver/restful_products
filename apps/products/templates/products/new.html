@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>New Products</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Add new products Here</h1>
     <form action="{% url 'products:create' %}" method="post">
-      {% csrf_token %}
-      Name: <input type="text" name="name" >
-      Description: <input type="text" name="description">
-      Price:  <input type="number" name="price">
-      <input type="submit" name="submit" value="create">
+        {% csrf_token %}
+        <p>Name: <input type="text" name="name"></p>
+        <p>Description: <input type="text" name="description"></p>
+        <p>Price: <input type="number" name="price"></p>
+        <input type="submit" name="submit" value="create">
     </form>
-  </body>
+    <a href="/products">Back</a>
+</body>
+
 </html>
